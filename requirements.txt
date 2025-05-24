@@ -3,7 +3,4 @@ agno
 lancedb
 pypdf
 streamlit
-tantivy
-yfinance
-pandas
 ipykernel
