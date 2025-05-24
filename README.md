@@ -26,6 +26,10 @@
 
 ---
 
+6. **Download all the dependencies by running**
+   ```python
+   python -r requirements.txt
+   ```
 # **Follow the next steps**
 
 
