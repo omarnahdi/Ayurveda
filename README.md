@@ -69,6 +69,36 @@ Use the following one-liner command to start the required PostgreSQL container w
 docker run -d -e POSTGRES_DB=brand_data_new -e POSTGRES_USER=ai -e POSTGRES_PASSWORD=ai -e PGDATA=/var/lib/postgresql/data/pgdata -v pgvolume:/var/lib/postgresql/data -p 5532:5432 --name pgvector agnohq/pgvector:16
 ```
 
+## Interacting with Your Agents via Agno Agent UI
+
+Agno provides a beautiful, open-source, and self-hosted UI for interacting with your agents. This interface allows you to chat with your agents, view their memory, knowledge, and more, all while keeping your data stored locally. [1]
+
+To get started with the Agno Agent UI:
+
+1.  **Clone the Agno Agent UI repository:**
+
+    You can either use `npx` for a quick setup:
+    ```bash
+    npx create-agent-ui@latest
+    # Follow the prompts (e.g., enter 'y' to create a new project and install dependencies)
+    ```
+
+2.  **Run the Agent UI:**
+
+    After installing dependencies, start the UI:
+    ```bash
+    cd agent-ui && npm run dev
+    ```
+
+3.  **Connect to your Local Agents:**
+
+    The Agno Agent UI needs to connect to a local playground server where your agents are running. Ensure your `agents_knowledge.py` script is set up to serve your agents.
+
+    Once your agent server is running, you can connect the Agent UI to it. The UI will be available on [http://localhost:3000/](http://localhost:3000/)
+
+    
+For more detailed information on setting up and using the Agno Agent UI, including how to configure your agent playground server, please refer to the official documentation: [https://docs.agno.com/agent-ui/introduction](https://docs.agno.com/agent-ui/introduction)
+
 # Important ⚠️
 
 Please comment out the following line in the `agents_knowledge.py` file **after the first run** to avoid reloading and upserting the knowledge base multiple times:
