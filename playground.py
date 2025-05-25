@@ -18,32 +18,6 @@ from agno.models.groq import Groq
 travily_api_key = os.environ["TRAVILY_API_KEY"]
 
 
-# SingleStore Configuration
-# USERNAME = os.getenv("SINGLESTORE_USERNAME")
-# PASSWORD = os.getenv("SINGLESTORE_PASSWORD")
-# HOST = os.getenv("SINGLESTORE_HOST")
-# PORT = os.getenv("SINGLESTORE_PORT")
-# DATABASE = os.getenv("SINGLESTORE_DATABASE")
-# SSL_CERT = os.getenv("SINGLESTORE_SSL_CERT")
-
-# # SingleStore DB URL
-# db_url = f"mysql+pymysql://{USERNAME}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}?charset=utf8mb4"
-# if SSL_CERT:
-#     db_url += f"&ssl_ca={SSL_CERT}&ssl_verify_cert=true"
-
-# # Create a database engine
-# db_engine = create_engine(db_url)
-
-# # Create a storage backend using the Singlestore database
-# storage = SingleStoreStorage(
-#     # store sessions in the ai.sessions table
-#     table_name="agent_sessions",
-#     # db_engine: Singlestore database engine
-#     db_engine=db_engine,
-#     # schema: Singlestore schema
-#     schema=DATABASE,
-# )
-
 from agno.storage.sqlite import SqliteStorage
 
 # Create a storage backend using the Sqlite database
