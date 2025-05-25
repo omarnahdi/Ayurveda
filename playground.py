@@ -176,8 +176,29 @@ report_agent_groq_qwq = Agent(
     show_tool_calls=True
 )
 
+report_agent_groq_llama_4 = Agent(
+    name="Report Agent Groq(Llama 4 scout)",
+    model=Groq('meta-llama/llama-4-scout-17b-16e-instruct',temperature=0.6),
+    instructions=instructions,
+    markdown=True,
+    knowledge=knowledge_base,
+    search_knowledge=True,
+
+    storage=sql_storage,
+    tools=[
+           TavilyTools(api_key=travily_api_key)],
+    # Adds the current date and time to the instructions
+    add_datetime_to_instructions=True,
+    # Adds the history of the conversation to the messages
+    add_history_to_messages=True,
+    # Number of history responses to add to the messages
+    num_history_responses=15,
+    # Adds markdown formatting to the messages
+    show_tool_calls=True
+)
+
 app = Playground(
-    agents=[report_agent,report_agent_groq, report_agent_groq_qwq],
+    agents=[report_agent,report_agent_groq, report_agent_groq_qwq,report_agent_groq_llama_4],
 ).get_app()
 
 if __name__ == "__main__":
